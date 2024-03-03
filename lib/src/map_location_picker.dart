@@ -1,5 +1,5 @@
 import 'dart:async';
-// test Basuoni
+// test NANA
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -103,6 +103,9 @@ class MapLocationPicker extends StatefulWidget {
 
   /// Dialog title
   final String dialogTitle;
+
+  /// Dialog Cancel Text
+  final String dialogCancelText;
 
   /// httpClient is used to make network requests.
   final Client? placesHttpClient;
@@ -236,6 +239,7 @@ class MapLocationPicker extends StatefulWidget {
     this.backButton,
     this.hideMoreOptions = false,
     this.dialogTitle = 'You can also use the following options',
+    this.dialogCancelText = 'Cancel',
     this.placesHttpClient,
     this.placesApiHeaders,
     this.placesBaseUrl,
@@ -554,7 +558,8 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                               showDialog(
                                 context: context,
                                 builder: (context) => AlertDialog(
-                                  title: Text('Basuoni'),
+                                  
+                                  title: Text(widget.dialogTitle),
                                   scrollable: true,
                                   content: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -585,6 +590,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                               );
                             },
                             child: Chip(
+                              // nana
                               label: Text(
                                 "Tap to show ${(_geocodingResultList.length - 1)} more result options",
                               ),
