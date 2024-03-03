@@ -554,7 +554,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                               showDialog(
                                 context: context,
                                 builder: (context) => AlertDialog(
-                                  title: Text(widget.dialogTitle),
+                                  title: Text('Basuoni'),
                                   scrollable: true,
                                   content: Column(
                                     mainAxisSize: MainAxisSize.min,
