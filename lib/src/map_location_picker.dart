@@ -580,7 +580,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                                   ),
                                   actions: [
                                     TextButton(
-                                      child: const Text('Cancel'),
+                                      child: Text(widget.dialogCancelText),
                                       onPressed: () {
                                         Navigator.pop(context);
                                       },
