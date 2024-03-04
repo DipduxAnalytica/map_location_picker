@@ -558,29 +558,63 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                               showDialog(
                                 context: context,
                                 builder: (context) => AlertDialog(
-                                  
+                                  backgroundColor: Colors.white,
+                                  surfaceTintColor: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
                                   title: Text(widget.dialogTitle),
                                   scrollable: true,
                                   content: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children:
                                         _geocodingResultList.map((element) {
-                                      return ListTile(
-                                        title: Text(
-                                            element.formattedAddress ?? ""),
-                                        onTap: () {
-                                          _address =
-                                              element.formattedAddress ?? "";
-                                          _geocodingResult = element;
-                                          setState(() {});
-                                          Navigator.pop(context, element);
-                                        },
-                                      );
+                                      return  InkWell(
+                                                hoverColor : Colors.transparent,
+                                                highlightColor : Colors.transparent,
+                                                splashColor : Colors.transparent,
+                                                onTap: (){
+                                                    _address =
+                                                                      element.formattedAddress ?? "";
+                                                                  _geocodingResult = element;
+                                                                  setState(() {});
+                                                                  Navigator.pop(context, element);
+                                                },
+                                                child: Column(
+                                                  children: [
+                                                    Row(
+                                                      children: [
+                                                        Icon(
+                                                          Icons.location_on_outlined,
+                                                          color: Color(0xFF006666),
+                                                        ),
+                                                        const SizedBox(width: 5,),
+                                                        Text(
+                                                          element.formattedAddress ?? "",
+                                                          style: TextStyle(
+                                                            fontSize: 18,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const Height(10),
+                                                    Container(
+                                                      width: double.infinity,
+                                                      height: 1,
+                                                      color: AppColors.gray3,
+                                                    ),
+                                                    const Height(10),
+                                                  ],
+                                                ),
+                                              );
                                     }).toList(),
                                   ),
                                   actions: [
                                     TextButton(
-                                      child: Text(widget.dialogCancelText),
+                                      child: Text(widget.dialogCancelText,  style: TextStyle(
+                                                            fontSize: 18,
+                                        
+                                                          ),),
                                       onPressed: () {
                                         Navigator.pop(context);
                                       },
