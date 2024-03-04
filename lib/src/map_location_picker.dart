@@ -630,7 +630,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                             child: Chip(
                               // nana
                               label: Text(
-                              widget.onMoreOptionsText !=  null ?  widget.onMoreOptionsText?.call(_geocodingResultList.length - 1):
+                              widget.onMoreOptionsText !=  null ?  (widget.onMoreOptionsText?.call(_geocodingResultList.length - 1)??''):
                                 "Tap to show ${(_geocodingResultList.length - 1)} more result options",
                               ),
                             ),
