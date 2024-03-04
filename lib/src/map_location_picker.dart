@@ -605,7 +605,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                                                     Container(
                                                       width: double.infinity,
                                                       height: 1,
-                                                      color: AppColors.gray3,
+                                                      color: Color(0xFFADADAD),
                                                     ),
                                                     const SizedBox(height:10),
                                                   ],
@@ -630,7 +630,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                             child: Chip(
                               // nana
                               label: Text(
-                              widget.onMoreOptionsText !=  null ?  widget.onMoreOptionsText(_geocodingResultList.length - 1):
+                              widget.onMoreOptionsText !=  null ?  widget.onMoreOptionsText?.call(_geocodingResultList.length - 1):
                                 "Tap to show ${(_geocodingResultList.length - 1)} more result options",
                               ),
                             ),
