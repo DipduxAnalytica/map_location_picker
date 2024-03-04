@@ -201,6 +201,8 @@ class MapLocationPicker extends StatefulWidget {
   /// Defaults to 0
   final int minCharsForSuggestions;
 
+  final String Function(int optionLength)? onMoreOptionsText;
+
   const MapLocationPicker({
     Key? key,
     this.desiredAccuracy = LocationAccuracy.high,
@@ -231,6 +233,7 @@ class MapLocationPicker extends StatefulWidget {
     this.bottomCardColor,
     this.hasLocationPermission = true,
     this.getLocation,
+    this.onMoreOptionsText,
     this.onSuggestionSelected,
     this.onNext,
     this.currentLatLng = const LatLng(28.8993468, 76.6250249),
@@ -597,13 +600,14 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                                                         ),
                                                       ],
                                                     ),
-                                                    const Height(10),
+                                                    const SizedBox(height:10),
+                                                
                                                     Container(
                                                       width: double.infinity,
                                                       height: 1,
                                                       color: AppColors.gray3,
                                                     ),
-                                                    const Height(10),
+                                                    const SizedBox(height:10),
                                                   ],
                                                 ),
                                               );
@@ -626,6 +630,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                             child: Chip(
                               // nana
                               label: Text(
+                              widget.onMoreOptionsText !=  null ?  widget.onMoreOptionsText(_geocodingResultList.length - 1):
                                 "Tap to show ${(_geocodingResultList.length - 1)} more result options",
                               ),
                             ),
