@@ -592,12 +592,13 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                                                           color: Color(0xFF006666),
                                                         ),
                                                         const SizedBox(width: 5,),
-                                                        Text(
+                                                        Expanded(
+                                                        child:  Text(
                                                           element.formattedAddress ?? "",
                                                           style: TextStyle(
                                                             fontSize: 18,
                                                           ),
-                                                        ),
+                                                        ),),
                                                       ],
                                                     ),
                                                     const SizedBox(height:10),
